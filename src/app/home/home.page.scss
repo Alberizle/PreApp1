@@ -1,13 +1,17 @@
 ion-content {
 
-  --ion-background-color: linear-gradient(45deg, #3d1758, #7B68EE);
+  --background: linear-gradient(45deg, #3d1758, #7B68EE) !important;
+}
 
-  p {
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 300;
-    //color: #433465;
-    margin: 0;
-  }
+p {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 300;
+  //color: #433465;
+  margin: 0;
+}
 
+
+.bg-gelo {
+  --ion-background-color: #F0F4FD;
 }

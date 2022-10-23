@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="bg-gelo">
   <ion-toolbar>
     <ion-item lines="none">
       <ion-label style="font-weight: 800; font-size: 1cm;">TaNaLista
@@ -10,13 +10,13 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-card *ngFor="let item of todoList; let i = index" class="ion-margin">
+  <ion-card *ngFor="let item of todoList; let i = index" class="ion-margin" class="bg-gelo">
     <ion-card-header>
       <ion-card-subtitle [style.color]="item.itemPriority === 'High' ? 'red' : (item.itemPriority === 'Low' ? 'green' : 'orange')">
         {{item.itemCategory}}
       </ion-card-subtitle>
 
-      <ion-item>
+      <ion-item class="bg-gelo">
         <ion-icon *ngIf="item.itemPriority === 'High'" color="danger" size="small" name="ellipse"></ion-icon>
         <ion-icon *ngIf="item.itemPriority === 'Middle'" color="warning" size="small" name="ellipse"></ion-icon>
         <ion-icon *ngIf="item.itemPriority === 'Low'" color="success" size="small" name="ellipse"></ion-icon>
@@ -24,29 +24,29 @@
       </ion-item>
     </ion-card-header>
 
-    <ion-card-content>
+    <ion-card-content class="bg-gelo">
       <ion-label>Vencimento {{item.itemDueDate | date:'fullDate'}}</ion-label>
     </ion-card-content>
 
     <ion-row>
-      <ion-item>
+      <ion-item class="bg-gelo">
         <ion-icon name="share-outline"></ion-icon>
         <p>Partilhar</p>
       </ion-item>
 
-      <ion-item>
+      <ion-item class="bg-gelo">
         <ion-icon name="checkmark-outline"></ion-icon>
         <p>Concluir</p>
       </ion-item>
 
-      <ion-item button (click)="delete()">
-        <ion-icon name="trash-outline"></ion-icon>
+      <ion-item button (click)="delete()" class="bg-gelo">
+        <ion-icon name="trash-outline" ></ion-icon>
         <p>Apagar</p>
       </ion-item>
     </ion-row>
   </ion-card>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
     <ion-fab-button (click)="addTask()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
