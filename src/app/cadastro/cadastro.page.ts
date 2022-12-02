@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -9,9 +10,22 @@ import { FormBuilder } from '@angular/forms';
 export class CadastroPage implements OnInit {
   color: any;
 
-  constructor() { }
+  form: FormGroup = new FormGroup({
+    nome: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z ]*$')]),
+    senha: new FormControl('', [Validators.required, Validators.minLength(6)]),
+  });
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  cadastrar(): void {
+    if (this.form.valid) {
+      this.router.navigate(['/home']);
+      return;
+    }
+    this.form.markAllAsTouched();
   }
 
 
